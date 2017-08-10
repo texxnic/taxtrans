@@ -1,0 +1,29 @@
+html {
+  height: 100%;
+  margin: 0; }
+
+body {
+  min-height: 100%;
+  margin: 0; }
+
+img {
+  width: 100%;
+  height: auto; }
+
+.mt15 {
+  margin: 15px 0 0 0; }
+
+.mt25 {
+  margin: 25px 0 0 0; }
+
+.mt50 {
+  margin-top: 50px; }
+
+.txtLeft {
+  text-align: left; }
+
+.txtRight {
+  text-align: right; }
+
+.txtCenter {
+  text-align: center; }
