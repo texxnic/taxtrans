@@ -1,3 +1,10 @@
+textarea:focus, input:focus {
+  outline: none; }
+
+* {
+  -webkit-transition: 0.3s;
+  transition: 0.3s; }
+
 html {
   height: 100%;
   margin: 0; }
@@ -6,9 +13,695 @@ body {
   min-height: 100%;
   margin: 0; }
 
-img {
+.container {
+  width: 90%;
+  margin: 0 auto;
+  height: 100%; }
+
+#main {
+  min-height: 100vh;
+  left: 0;
+  right: 0; }
+
+.jumbo {
+  min-height: 400px;
   width: 100%;
-  height: auto; }
+  height: 100vh;
+  background: url(/img/jumboGirl.jpg) no-repeat center center;
+  background-size: cover; }
+  .jumbo .container {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .jumbo header {
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+    z-index: 4;
+    opacity: 0.99999; }
+    .jumbo header .headerRightContent {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+    .jumbo header .container {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; }
+    .jumbo header p {
+      margin: 15px; }
+  .jumbo img {
+    height: 100px;
+    width: auto;
+    -ms-flex-item-align: start;
+    align-self: flex-start; }
+  .jumbo .smaller {
+    background-color: rgba(0, 0, 0, 0.4); }
+    .jumbo .smaller img {
+      height: 70px; }
+  .jumbo li {
+    display: inline; }
+  .jumbo .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .jumbo .jumboText {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1 0;
+    -ms-flex: 1 0;
+    flex: 1 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    /* Mixin for drawing button with optional argument for width, padding, and time*/
+    /* Color variables*/
+    /* Start of styling*/ }
+    .jumbo .jumboText * {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box; }
+    .jumbo .jumboText body {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100%;
+      font-family: Doko-Book, serif;
+      -webkit-font-smoothing: antialiased;
+      background-color: #000; }
+    .jumbo .jumboText a {
+      font-size: 2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.1em; }
+    .jumbo .jumboText .btn-draw {
+      position: relative;
+      display: inline-block;
+      color: #fff;
+      border-bottom: 2px solid #fff;
+      cursor: pointer;
+      overflow: hidden;
+      -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+      transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; }
+      .jumbo .jumboText .btn-draw:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 2px;
+        background: #fff;
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        -webkit-transition: -webkit-transform 0.2s ease-in-out;
+        transition: -webkit-transform 0.2s ease-in-out;
+        transition: transform 0.2s ease-in-out;
+        transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+        -webkit-transition-delay: 0.6s;
+        transition-delay: 0.6s; }
+      .jumbo .jumboText .btn-draw > span {
+        position: relative;
+        display: block;
+        padding: 0.5em;
+        color: inherit;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 300;
+        font-size: 25px; }
+        .jumbo .jumboText .btn-draw > span:before, .jumbo .jumboText .btn-draw > span:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          background: #fff;
+          -webkit-transition: -webkit-transform 0.2s ease-in-out;
+          transition: -webkit-transform 0.2s ease-in-out;
+          transition: transform 0.2s ease-in-out;
+          transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+        .jumbo .jumboText .btn-draw > span:before {
+          height: 2px;
+          width: 100%;
+          -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+          -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s; }
+        .jumbo .jumboText .btn-draw > span:after {
+          height: 100%;
+          width: 2px;
+          -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+          -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s; }
+      .jumbo .jumboText .btn-draw:hover:after,
+      .jumbo .jumboText .btn-draw:hover > span:before,
+      .jumbo .jumboText .btn-draw:hover > span:after {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0); }
+      .jumbo .jumboText .btn-draw:hover:after {
+        -webkit-transition-delay: 0s;
+        transition-delay: 0s; }
+      .jumbo .jumboText .btn-draw:hover > span:before {
+        -webkit-transition-delay: 0.2s;
+        transition-delay: 0.2s; }
+      .jumbo .jumboText .btn-draw:hover > span:after {
+        -webkit-transition-delay: 0.4s;
+        transition-delay: 0.4s; }
+      .jumbo .jumboText .btn-draw:hover {
+        color: #000;
+        background-color: #fff;
+        -webkit-transition-delay: 0.6s;
+        transition-delay: 0.6s; }
+  .jumbo h1 {
+    color: #ffd100;
+    margin: 0; }
+  .jumbo h2 {
+    color: #fff; }
+  .jumbo p {
+    font-size: 25px;
+    color: #fff; }
+  .jumbo a {
+    color: #fff; }
+
+h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  font-size: 100px; }
+
+h2 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  font-size: 70px;
+  margin: 25px 0; }
+
+h3 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 200;
+  font-size: 60px;
+  margin: 0; }
+
+h4 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  font-size: 50px;
+  margin: 0; }
+
+p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 200;
+  font-size: 25px; }
+
+a {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 200;
+  font-size: 20px; }
+
+.blur {
+  -webkit-filter: blur(5px);
+  /* Safari */
+  filter: blur(5px); }
+
+.grayscale {
+  -webkit-filter: grayscale(100%);
+  /* Safari */
+  filter: grayscale(100%); }
+
+/* SIDENAV*/
+.sidenav {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 6;
+  /* Stay on top */
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */ }
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s; }
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover,
+.offcanvas a:focus {
+  color: #f1f1f1; }
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px; }
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  -webkit-transition: margin-right .5s;
+  transition: margin-right .5s; }
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px; }
+  .sidenav a {
+    font-size: 18px; } }
+
+/* HAM menu*/
+#nav-icon1 {
+  width: 40px;
+  height: 45px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0.9999; }
+
+.hamBorder {
+  border: 1px solid white;
+  margin-left: 20px;
+  padding: 10px 10px 3px 10px;
+  border-radius: 10px; }
+
+#nav-icon1 span {
+  display: block;
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  background: #ffd100;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  transition: .25s ease-in-out; }
+
+#nav-icon1 span:nth-child(1) {
+  top: 0px; }
+
+#nav-icon1 span:nth-child(2) {
+  top: 15px; }
+
+#nav-icon1 span:nth-child(3) {
+  top: 30px; }
+
+#nav-icon1.open span:nth-child(1) {
+  top: 18px;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg); }
+
+#nav-icon1.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px; }
+
+#nav-icon1.open span:nth-child(3) {
+  top: 18px;
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg); }
+
+/* END HAM MENU*/
+/* SIDENAV END*/
+.sectionPaddings {
+  padding: 20px 0; }
+
+.parralaxText {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  font-size: 500px;
+  position: absolute;
+  opacity: 0.1;
+  z-index: -99999;
+  white-space: nowrap;
+  -webkit-transition: 0;
+  transition: 0;
+  top: -20px; }
+
+.order {
+  overflow: hidden;
+  background-color: #333;
+  background-image: url("/img/map_pattern_2.png");
+  background-size: 70%;
+  background-attachment: fixed;
+  -webkit-box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+  -moz-box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+  box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+  text-align: center;
+  /* switchInputButtons*/
+  /* endSwitchInputButtons*/
+  /* matformEnd*/ }
+  .order .inputPlash {
+    padding: 0;
+    background-color: #fff;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+    -webkit-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+    -moz-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+    box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58); }
+  .order .adressAndPhone .inputPlash {
+    background-color: #fff;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    padding: 10px 0;
+    -webkit-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+    -moz-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+    box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58); }
+  .order form {
+    text-align: left;
+    max-width: 1000px;
+    margin: 0 auto; }
+  .order h2 {
+    color: #fff;
+    margin: 0 0 40px 0; }
+  .order .inputText {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: transparent; }
+  .order .botLine {
+    border-bottom: 1px solid #ebebeb; }
+  .order .padding0 {
+    padding: 0; }
+  .order .time input {
+    height: 57px; }
+  .order .switch-field {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 200;
+    font-size: 25px;
+    overflow: hidden; }
+  .order .switch-title {
+    margin-bottom: 6px; }
+  .order .switch-field input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden; }
+  .order .switch-field label {
+    float: left;
+    height: 47px; }
+  .order .switch-field label {
+    display: inline-block;
+    color: #333;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    text-shadow: none;
+    padding: 10px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out; }
+  .order .switch-field label:hover {
+    cursor: pointer; }
+  .order .switch-field input:checked + label {
+    background-color: #ffd100;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #fff;
+    -webkit-box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+    -moz-box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+    box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.4); }
+  .order .switch-field label:first-of-type {
+    border-radius: 4px 0 0 0; }
+  .order .switch-field label:last-of-type {
+    border-radius: 0 4px 0 0; }
+  .order button {
+    background-color: #ffd100;
+    border: none;
+    color: #000;
+    -webkit-box-flex: 10;
+    -ms-flex: 10;
+    flex: 10;
+    padding: 15px 30px;
+    cursor: pointer;
+    height: 64px;
+    width: 100%;
+    ont-family: 'Source Sans Pro', sans-serif;
+    font-weight: 200;
+    font-size: 20px; }
+    .order button img {
+      margin: -1px 10px; }
+  .order button:hover {
+    background-color: #e45b00; }
+  .order #datetime {
+    border: none;
+    background-color: transparent; }
+  .order .timeIco {
+    margin-top: 8px; }
+
+.autopark {
+  z-index: -2;
+  height: 740px;
+  background-color: #ffd100;
+  position: relative;
+  overflow: hidden;
+  padding-right: 5%; }
+  .autopark .skodaPhoto {
+    z-index: 4;
+    position: absolute;
+    right: 450px;
+    -webkit-transition: 0s;
+    transition: 0s; }
+  .autopark .vwPhoto {
+    z-index: 2;
+    position: absolute;
+    right: 390px;
+    top: -10px; }
+  .autopark .carAndDesc {
+    position: relative; }
+  .autopark .desc {
+    position: absolute;
+    right: 0;
+    top: 200px;
+    width: 460px;
+    background-color: #ebebeb;
+    -webkit-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+    -moz-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+    box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58); }
+    .autopark .desc .carDescModel {
+      background-color: #333;
+      padding: 15px 20px; }
+      .autopark .desc .carDescModel img {
+        float: left;
+        margin-right: 10px; }
+    .autopark .desc .carDesc {
+      text-align: justify; }
+  .autopark .vwDesc {
+    transform: scale(0.7) translate(-150px, -170px);
+    z-index: 1; }
+  .autopark .skodaDesc {
+    z-index: 3;
+    -webkit-transition: 0s;
+    transition: 0s; }
+  .autopark .carManufactr {
+    width: 100px;
+    height: auto; }
+
+@media only screen and (min-width: 1900tpx) {
+  .skodaPhoto {
+    left: 0; }
+  .vwPhoto {
+    left: 90px; }
+  .autopark .desc {
+    width: 28%; } }
+
+.aboutUs {
+  height: 800px;
+  background-image: url("/img/flaresBG.jpg");
+  background-size: auto 100%;
+  position: relative;
+  overflow: hidden; }
+  @media only screen and (min-width: 1480px) {
+    .aboutUs .aboutUs {
+      background-image: url("/img/flaresBG.jpg");
+      background-size: 100% auto; } }
+  .aboutUs .container {
+    position: relative; }
+  .aboutUs .poglash {
+    bottom: 100px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 646px; }
+  .aboutUs .shashDivWrapper {
+    position: absolute;
+    left: 550px;
+    top: 90px; }
+    .aboutUs .shashDivWrapper .shashDivPositioner {
+      position: relative; }
+  .aboutUs p {
+    border-left: 2px solid #ffd100;
+    padding-left: 10px; }
+  .aboutUs svg {
+    width: 90px;
+    height: 90px;
+    fill: #ffd100;
+    position: absolute; }
+  .aboutUs svg.checkList {
+    top: 50px;
+    right: 530px;
+    width: 105px;
+    height: 105px; }
+  .aboutUs .driverIco {
+    top: 150px;
+    right: 445px; }
+  .aboutUs .carWash {
+    top: 50px;
+    right: 350px; }
+  .aboutUs .roubleIco {
+    top: 148px;
+    right: 238px;
+    width: 100px;
+    transform: scale(0.7); }
+  .aboutUs .timeIco {
+    top: 53px;
+    right: 154px;
+    width: 100px;
+    transform: scale(0.8); }
+  .aboutUs .fil1 {
+    fill: none; }
+  .aboutUs .aboutUsTxt {
+    color: #fff;
+    width: 600px;
+    left: 0; }
+  @media only screen and (min-width: 1480px) {
+    .aboutUs .shashDivWrapper {
+      left: auto;
+      right: 0; } }
+  @media only screen and (max-width: 1230px) {
+    .aboutUs .aboutUsTxt {
+      text-align: center;
+      width: 90%; }
+      .aboutUs .aboutUsTxt p {
+        border-left: none;
+        padding-left: 10px; }
+    .aboutUs .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .aboutUs .container .shashDivWrapper {
+        position: static;
+        display: inline-block;
+        left: 550px;
+        top: 130px;
+        transform: scale(0.7); } }
+  @media only screen and (max-width: 760px) {
+    .aboutUs .container {
+      text-align: center; }
+      .aboutUs .container .shashDivWrapper {
+        position: static;
+        display: inline-block;
+        transform: scale(0.5); } }
+
+@media only screen and (max-width: 1230px) {
+  .aboutUs .container {
+    text-align: center; }
+  .autopark .desc {
+    position: static;
+    width: 90%;
+    margin: 0 auto; }
+  .autopark {
+    background-image: url("/img/skoda.png"), url("/img/vw.png");
+    background-repeat: no-repeat;
+    text-align: center;
+    height: 500px;
+    background-size: cover;
+    background-position: center center; }
+  .shashDivWrapper {
+    margin-top: -40px; }
+  h2 {
+    margin-bottom: 10px; } }
+
+@media only screen and (min-width: 1480px) {
+  .shashDivWrapper {
+    left: auto;
+    right: 0; } }
+
+@media only screen and (min-width: 1480px) and (min-width: 1700px) {
+  .aboutUs {
+    background-image: url("/img/flaresBG.jpg");
+    background-size: 100% auto; } }
+
+@media only screen and (max-width: 760px) {
+  h1 {
+    font-size: 60px; }
+  h2 {
+    font-size: 40px; }
+  h3 {
+    font-size: 30px; }
+  p {
+    font-size: 15px !important; }
+  header img {
+    height: 70px !important;
+    width: auto;
+    -ms-flex-item-align: start;
+    align-self: flex-start; }
+  .autopark {
+    height: 350px; }
+  .smaller {
+    background-color: rgba(0, 0, 0, 0.4); }
+    .smaller img {
+      height: 50px !important; } }
+
+.whiteTxt {
+  color: #fff; }
+
+.hidden {
+  display: none; }
 
 .mt15 {
   margin: 15px 0 0 0; }
@@ -19,11 +712,8 @@ img {
 .mt50 {
   margin-top: 50px; }
 
-.txtLeft {
-  text-align: left; }
+.fRight {
+  float: right; }
 
-.txtRight {
-  text-align: right; }
-
-.txtCenter {
-  text-align: center; }
+.fLeft {
+  float: left; }

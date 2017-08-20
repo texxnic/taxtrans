@@ -1,38 +1,977 @@
-$yellow: #ffe000;
+    $yellow: #ffd100;
+    $white:#fff;
+    $gray:#333;
+    $orange:#e45b00;
+    $lightGray:#ebebeb;
+    $black:#000;
 
-html {
-  height: 100%;
-  margin: 0;
-}
-body {
-  min-height: 100%;
-  margin: 0;
-}
+    @mixin flexbox() {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
 
-img{
-  width: 100%;
-  height: auto;
-}
-
-
-.mt15{
-  margin:15px 0 0 0;
+textarea:focus, input:focus{
+    outline: none;
 }
 
-.mt25{
-  margin:25px 0 0 0;
-}
+    @mixin flex($values) {
+        -webkit-box-flex: $values;
+        -ms-flex: $values;
+        flex: $values;
+    }
 
-.mt50{
-  margin-top:50px;
-}
+    @mixin order($val) {
+        -webkit-box-ordinal-group: $val;
+        -ms-flex-order: $val;
+        order: $val;
+    }
 
-.txtLeft{
- text-align:left; 
-}
-.txtRight{
- text-align:right; 
-}
-.txtCenter{
- text-align:center; 
-}
+    * {
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+    }
+
+    html {
+        height: 100%;
+        margin: 0;
+    }
+
+    body {
+        min-height: 100%;
+        margin: 0;
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+
+        height: 100%;
+    }
+
+
+    #main {
+        min-height: 100vh;
+        left: 0;
+        right: 0;
+    }
+
+    .jumbo {
+        min-height: 400px;
+        width: 100%;
+        height:100vh;
+        background: url(/img/jumboGirl.jpg) no-repeat center center;
+        background-size: cover;
+        .container {
+            position: relative;
+            @include flexbox();
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+        header {
+            position: fixed;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: stretch;
+            -ms-flex-align: stretch;
+            align-items: stretch;
+            width: 100%;
+            z-index: 4;
+            opacity: 0.99999;
+
+            .headerRightContent {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+            .container {
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                flex-direction: row;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+            }
+            p {
+                margin: 15px;
+            }
+        }
+        img {
+            height: 100px;
+            width: auto;
+            -ms-flex-item-align: start;
+            align-self: flex-start;
+        }
+        .smaller {
+            background-color: rgba(0, 0, 0, 0.4);
+            img {
+                height: 70px;
+            }
+        }
+        li {
+            display: inline;
+        }
+        .menu {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+        .jumboText {
+            @include flexbox();
+            @include flex(1 0);
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            /* Mixin for drawing button with optional argument for width, padding, and time*/
+            @mixin btn-draw($color, $color-hov, $width: 1px, $padding: 0.5em, $time: 0.2s) {
+                position: relative;
+
+                display: inline-block;
+
+                color: $color;
+                border-bottom: $width solid $color;
+                cursor: pointer;
+                overflow: hidden;
+                -webkit-transition: color $time ease-in-out, background-color $time ease-in-out;
+                transition: color $time ease-in-out, background-color $time ease-in-out;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+
+                    height: 100%;
+                    width: $width;
+
+                    background: $color;
+                    -webkit-transform: translateY(100%);
+                    transform: translateY(100%);
+                    -webkit-transition: -webkit-transform $time ease-in-out;
+                    transition: -webkit-transform $time ease-in-out;
+                    transition: transform $time ease-in-out;
+                    transition: transform $time ease-in-out, -webkit-transform $time ease-in-out;
+                    -webkit-transition-delay: $time * 3;
+                    transition-delay: $time * 3;
+                }
+
+                >span {
+                    position: relative;
+
+                    display: block;
+                    padding: $padding;
+
+                    color: inherit;
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-weight: 300;
+                    font-size: 25px;
+
+                    &:before,
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+
+                        background: $color;
+                        -webkit-transition: -webkit-transform $time ease-in-out;
+                        transition: -webkit-transform $time ease-in-out;
+                        transition: transform $time ease-in-out;
+                        transition: transform $time ease-in-out, -webkit-transform $time ease-in-out;
+                    }
+
+                    &:before {
+                        height: $width;
+                        width: 100%;
+
+                        -webkit-transform: translateX(100%);
+
+                        transform: translateX(100%);
+                        -webkit-transition-delay: $time * 2;
+                        transition-delay: $time * 2;
+                    }
+
+                    &:after {
+                        height: 100%;
+                        width: $width;
+
+                        -webkit-transform: translateY(-100%);
+
+                        transform: translateY(-100%);
+                        -webkit-transition-delay: $time;
+                        transition-delay: $time;
+                    }
+                }
+
+                &:hover:after,
+                &:hover>span:before,
+                &:hover>span:after {
+                    -webkit-transform: translate(0, 0);
+                    transform: translate(0, 0);
+                }
+
+                &:hover:after {
+                    -webkit-transition-delay: 0s;
+                    transition-delay: 0s;
+                }
+
+                &:hover>span:before {
+                    -webkit-transition-delay: $time;
+                    transition-delay: $time;
+                }
+
+                &:hover>span:after {
+                    -webkit-transition-delay: $time * 2;
+                    transition-delay: $time * 2;
+                }
+
+                &:hover {
+                    color: $color-hov;
+                    background-color: $color;
+                    -webkit-transition-delay: $time * 3;
+                    transition-delay: $time * 3;
+                }
+            }
+            /* Color variables*/
+            $color-blue: #fff;
+            $color-grey: #000;
+            /* Start of styling*/
+            * {
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            body {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                height: 100vh;
+                width: 100%;
+
+                font-family: Doko-Book, serif;
+                -webkit-font-smoothing: antialiased;
+                background-color: $color-grey;
+            }
+
+            a {
+                font-size: 2em;
+                text-transform: uppercase;
+                text-decoration: none;
+                letter-spacing: 0.1em;
+            }
+
+            .btn-draw {
+                @include btn-draw($color-blue, $color-grey, 2px);
+            }
+        }
+        h1 {
+            color: $yellow;
+            margin: 0;
+        }
+        h2 {
+            color: $white;
+        }
+        p {
+            font-size: 25px;
+            color: $white;
+        }
+        a {
+            color: $white;
+        }
+    }
+
+
+
+    h1 {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 900;
+        font-size: 100px;
+    }
+
+    h2 {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 900;
+        font-size: 70px;
+        margin: 25px 0;
+    }
+
+    h3 {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 200;
+        font-size: 60px;
+        margin: 0;
+    }
+
+    h4 {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 900;
+        font-size: 50px;
+        margin: 0;
+    }
+    p {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 200;
+        font-size: 25px;
+    }
+
+    a {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 200;
+        font-size: 20px;
+    }
+
+    .blur {
+        -webkit-filter: blur(5px);
+        /* Safari */
+        filter: blur(5px);
+    }
+    .grayscale{
+        -webkit-filter: grayscale(100%);
+        /* Safari */
+        filter: grayscale(100%);
+    }
+    /* SIDENAV*/
+
+    .sidenav {
+        height: 100%;
+        /* 100% Full-height */
+        width: 0;
+        /* 0 width - change this with JavaScript */
+        position: fixed;
+        /* Stay in place */
+        z-index: 6;
+        /* Stay on top */
+        top: 0;
+        right: 0;
+        background-color: #fff;
+        /* Black*/
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        padding-top: 60px;
+        /* Place content 60px from the top */
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        /* 0.5 second transition effect to slide in the sidenav */
+    }
+    /* The navigation menu links */
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        -webkit-transition: 0.3s;
+        transition: 0.3s
+    }
+    /* When you mouse over the navigation links, change their color */
+
+    .sidenav a:hover,
+    .offcanvas a:focus {
+        color: #f1f1f1;
+    }
+    /* Position and style the close button (top right corner) */
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+
+    #main {
+        -webkit-transition: margin-right .5s;
+        transition: margin-right .5s;
+    }
+    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+        .sidenav a {
+            font-size: 18px;
+        }
+    }
+    /* HAM menu*/
+
+    #nav-icon1 {
+        width: 40px;
+        height: 45px;
+        position: relative;
+
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+        cursor: pointer;
+        z-index: 5;
+        opacity: 0.9999;
+    }
+
+    .hamBorder {
+        border: 1px solid white;
+        margin-left: 20px;
+        padding: 10px 10px 3px 10px;
+        border-radius: 10px;
+    }
+
+    #nav-icon1 span {
+        display: block;
+        position: absolute;
+        height: 6px;
+        width: 100%;
+        background: $yellow;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+    }
+
+    #nav-icon1 span:nth-child(1) {
+        top: 0px;
+    }
+
+    #nav-icon1 span:nth-child(2) {
+        top: 15px;
+    }
+
+    #nav-icon1 span:nth-child(3) {
+        top: 30px;
+    }
+
+    #nav-icon1.open span:nth-child(1) {
+        top: 18px;
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+    }
+
+    #nav-icon1.open span:nth-child(2) {
+        opacity: 0;
+        left: -60px;
+    }
+
+    #nav-icon1.open span:nth-child(3) {
+        top: 18px;
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+    }
+    /* END HAM MENU*/
+    /* SIDENAV END*/
+
+    .sectionPaddings {
+        padding: 20px 0;
+    }
+
+    .parralaxText {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 900;
+        font-size: 500px;
+        position: absolute;
+        opacity: 0.1;
+        z-index: -99999;
+        white-space: nowrap;
+        -webkit-transition: 0;
+        transition: 0;
+        top: -20px;
+    }
+
+    .order {
+        overflow: hidden;
+        
+        
+        background-color: $gray;
+        background-image: url('/img/map_pattern_2.png');
+        background-size: 70%;
+        background-attachment: fixed;
+        -webkit-box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        -moz-box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        text-align: center;
+        
+     
+
+        .inputPlash{
+            padding: 0;
+            background-color: $white;
+            margin-bottom:15px;
+            border-radius:5px;
+            overflow: hidden;
+            -webkit-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        -moz-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        }
+
+        .adressAndPhone .inputPlash {
+            background-color: $white;
+            margin-bottom:15px;
+            border-radius:5px;
+            padding: 10px 0;
+            -webkit-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        -moz-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        
+        }
+        
+        form{
+            text-align: left;
+            max-width:1000px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            color: $white;
+            margin: 0 0 40px 0;
+        }
+      
+
+        .inputText {
+            width: 100%;
+            height:40px;
+           border:none;
+            background-color: rgba(0,0,0,0);
+
+        }
+       .botLine{
+        border-bottom:1px solid $lightGray;
+       }
+       .padding0{
+        padding: 0;
+       }
+       
+       .time input{
+            height:57px;
+       }
+        /* switchInputButtons*/
+        .switch-field {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 200;
+            font-size: 25px;
+            overflow: hidden;
+        }
+
+        .switch-title {
+            margin-bottom: 6px;
+        }
+
+        .switch-field input {
+            position: absolute !important;
+            clip: rect(0, 0, 0, 0);
+            height: 1px;
+            width: 1px;
+            border: 0;
+            overflow: hidden;
+        }
+
+        .switch-field label {
+            float: left;
+            height:47px;
+        }
+
+        .switch-field label {
+            display: inline-block;
+
+
+            color: $gray;
+            font-size: 20px;
+            font-weight: normal;
+            text-align: center;
+            text-shadow: none;
+            padding: 10px 20px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+
+            -webkit-transition: all 0.1s ease-in-out;
+            transition: all 0.1s ease-in-out;
+        }
+
+        .switch-field label:hover {
+            cursor: pointer;
+        }
+
+        .switch-field input:checked+label {
+            background-color: $yellow;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            color: $white;
+            -webkit-box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        -moz-box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.4);
+        }
+
+        .switch-field label:first-of-type {
+            border-radius: 4px 0 0 0;
+        }
+
+        .switch-field label:last-of-type {
+            border-radius: 0 4px 0 0;
+        }
+        /* endSwitchInputButtons*/
+
+        button {
+            background-color: $yellow;
+            border: none;
+            color: $black;
+            -webkit-box-flex: 10;
+            -ms-flex: 10;
+            flex: 10;
+            padding: 15px 30px;
+
+            cursor: pointer;
+            height: 64px;
+        width: 100%;
+        ont-family: 'Source Sans Pro', sans-serif;
+        font-weight: 200;
+        font-size: 20px;
+        img{
+            margin: -1px 10px;
+        }
+        }
+        button:hover{
+            background-color: $orange;
+        }
+        #datetime{
+            border:none;
+            background-color: transparent;
+        }
+        .timeIco{
+            margin-top:8px;
+        }
+        /* matformEnd*/
+    
+
+
+    }
+
+    .autopark {
+         
+        z-index: -2;
+
+        height: 740px;
+        background-color: $yellow;
+        position: relative;
+        overflow: hidden;
+        padding-right: 5%;
+       
+        .skodaPhoto {
+            z-index: 4;
+            position: absolute;
+            right: 450px;
+            -webkit-transition: 0s;
+        transition: 0s;
+        }
+        .vwPhoto {
+            z-index: 2;
+            position: absolute;
+            right: 390px;
+            top: -10px;
+        }
+        .carAndDesc {
+            position: relative;
+        }
+        .desc {
+            position: absolute;
+            right: 0;
+            top: 200px;
+            width: 460px;
+            background-color: $lightGray;
+             -webkit-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        -moz-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+
+            .carDescModel{
+                background-color: $gray;
+                img{
+                    float:left;
+                    margin-right: 10px;
+                }
+                padding:15px 20px;
+            }
+            .carDesc{
+                text-align: justify;
+                
+            }
+        }
+        .vwDesc{
+            transform:scale(0.7) translate(-150px,-170px);
+            z-index: 1;
+        }
+        .skodaDesc{
+            z-index:3;
+            -webkit-transition: 0s;
+        transition: 0s;
+        }
+
+        .carManufactr {
+            width: 100px;
+            height: auto;
+        }
+    }
+
+    @media only screen and (min-width: 1900tpx) {
+        .skodaPhoto {
+            left: 0;
+        }
+        .vwPhoto {
+            left: 90px;
+        }
+        .autopark .desc {
+            width: 28%;
+        }
+    }
+
+    .aboutUs {
+        height: 800px;
+        background-image: url("/img/flaresBG.jpg");
+        background-size: auto 100%;
+        position: relative;
+        overflow: hidden;
+        @media only screen and (min-width: 1480px) {
+            .aboutUs {
+                background-image: url("/img/flaresBG.jpg");
+                background-size: 100% auto;
+            }
+        }
+        .container {
+            position: relative;
+        }
+
+        .poglash {
+            bottom: 100px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 646px;
+        }
+        .shashDivWrapper {
+            position: absolute;
+            left: 550px;
+            top: 90px;
+
+            .shashDivPositioner {
+                position: relative;
+            }
+        }
+
+        p {
+            border-left: 2px solid $yellow;
+            padding-left: 10px;
+        }
+        svg {
+            width: 90px;
+            height: 90px;
+
+            fill: $yellow;
+            position: absolute;
+        }
+        svg.checkList {
+            top: 50px;
+            right: 530px;
+            width: 105px;
+            height: 105px;
+        }
+        .driverIco {
+            top: 150px;
+            right: 445px;
+        }
+        .carWash {
+            top: 50px;
+            right: 350px;
+        }
+        .roubleIco {
+            top: 148px;
+            right: 238px;
+            width: 100px;
+            transform: scale(0.7);
+        }
+        .timeIco {
+
+            top: 53px;
+            right: 154px;
+            width: 100px;
+            transform: scale(0.8);
+        }
+
+        .fil1 {
+            fill: none
+        }
+
+        .aboutUsTxt {
+            color: $white;
+            width: 600px;
+            left: 0;
+        }
+        @media only screen and (min-width: 1480px) {
+            .shashDivWrapper {
+                left: auto;
+                right: 0;
+            }
+        }
+        @media only screen and (max-width: 1230px) {
+            .aboutUsTxt {
+                text-align: center;
+                width: 90%;
+
+                p {
+                    border-left: none;
+                    padding-left: 10px;
+                }
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .shashDivWrapper {
+                    position: static;
+                    display: inline-block;
+                    left: 550px;
+                    top: 130px;
+                    transform: scale(0.7);
+                }
+            }
+        }
+        @media only screen and (max-width: 760px) {
+            .container {
+                text-align: center;
+                .shashDivWrapper {
+                    position: static;
+                    display: inline-block;
+
+                    transform: scale(0.5);
+                }
+            }
+        }
+    }
+
+
+
+
+    @media only screen and (max-width: 1230px) {
+        .aboutUs .container {
+            text-align: center;
+        }
+        .autopark .desc {
+            position: static;
+            width: 90%;
+            margin: 0 auto;
+        }
+        .autopark {
+            background-image: url('/img/skoda.png'), url('/img/vw.png');
+
+            background-repeat: no-repeat;
+            text-align: center;
+            height: 500px;
+            background-size: cover;
+            background-position: center center;
+        }
+        .shashDivWrapper {
+            margin-top: -40px;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+    }
+
+    @media only screen and (min-width: 1480px) {
+        .shashDivWrapper {
+            left: auto;
+            right: 0;
+        }
+
+
+        @media only screen and (min-width: 1700px) {
+            .aboutUs {
+                background-image: url("/img/flaresBG.jpg");
+                background-size: 100% auto;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 760px) {
+        h1 {
+            font-size: 60px;
+        }
+        h2 {
+            font-size: 40px;
+        }
+        h3 {
+            font-size: 30px;
+        }
+        p {
+            font-size: 15px !important;
+        }
+
+        header img {
+            height: 70px !important;
+            width: auto;
+            -ms-flex-item-align: start;
+            align-self: flex-start;
+        }
+        .autopark {
+            height: 350px;
+        }
+        .smaller {
+            background-color: rgba(0, 0, 0, 0.4);
+            img {
+                height: 50px !important;
+            }
+        }
+    }
+
+    .whiteTxt {
+        color: $white;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .mt15 {
+        margin: 15px 0 0 0;
+    }
+
+    .mt25 {
+        margin: 25px 0 0 0;
+    }
+
+    .mt50 {
+        margin-top: 50px;
+    }
+
+    .fRight {
+        float: right;
+    }
+
+    .fLeft {
+        float: left;
+    }
