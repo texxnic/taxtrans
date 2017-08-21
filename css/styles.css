@@ -245,7 +245,8 @@ p {
 a {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 200;
-  font-size: 20px; }
+  font-size: 25px;
+  text-decoration: none; }
 
 .blur {
   -webkit-filter: blur(5px);
@@ -287,12 +288,13 @@ a {
   color: #818181;
   display: block;
   -webkit-transition: 0.3s;
-  transition: 0.3s; }
+  transition: 0.3s;
+  border-bottom: 1px solid #ebebeb; }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover,
 .offcanvas a:focus {
-  color: #f1f1f1; }
+  color: #ffd100; }
 
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
@@ -373,7 +375,7 @@ a {
 /* END HAM MENU*/
 /* SIDENAV END*/
 .sectionPaddings {
-  padding: 20px 0; }
+  padding: 40px 0; }
 
 .parralaxText {
   font-family: 'Source Sans Pro', sans-serif;
@@ -401,11 +403,11 @@ a {
   /* endSwitchInputButtons*/
   /* matformEnd*/ }
   .order .inputPlash {
+    overflow: visible;
     padding: 0;
     background-color: #fff;
     margin-bottom: 15px;
     border-radius: 5px;
-    overflow: hidden;
     -webkit-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
     -moz-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
     box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58); }
@@ -431,8 +433,6 @@ a {
     background-color: transparent; }
   .order .botLine {
     border-bottom: 1px solid #ebebeb; }
-  .order .padding0 {
-    padding: 0; }
   .order .time input {
     height: 57px; }
   .order .switch-field {
@@ -503,11 +503,14 @@ a {
 
 .autopark {
   z-index: -2;
-  height: 740px;
+  padding-top: 20px;
+  height: 760px;
   background-color: #ffd100;
   position: relative;
   overflow: hidden;
-  padding-right: 5%; }
+  padding-right: 5%;
+  background: url(/img/carBG.jpg) no-repeat center center;
+  background-size: cover; }
   .autopark .skodaPhoto {
     z-index: 4;
     position: absolute;
@@ -537,7 +540,10 @@ a {
         float: left;
         margin-right: 10px; }
     .autopark .desc .carDesc {
-      text-align: justify; }
+      text-align: justify;
+      padding: 10px 30px; }
+      .autopark .desc .carDesc p {
+        font-size: 20px; }
   .autopark .vwDesc {
     transform: scale(0.7) translate(-150px, -170px);
     z-index: 1; }
@@ -549,7 +555,7 @@ a {
     width: 100px;
     height: auto; }
 
-@media only screen and (min-width: 1900tpx) {
+@media only screen and (min-width: 1900px) {
   .skodaPhoto {
     left: 0; }
   .vwPhoto {
@@ -570,8 +576,9 @@ a {
   .aboutUs .container {
     position: relative; }
   .aboutUs .poglash {
-    bottom: 100px;
+    bottom: 80px;
     position: absolute;
+    max-width: 80%;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -648,25 +655,29 @@ a {
         transform: scale(0.5); } }
 
 @media only screen and (max-width: 1230px) {
+  .hidden-mobile {
+    display: none; }
   .aboutUs .container {
     text-align: center; }
+    .aboutUs .container .poglash {
+      width: 350px; }
   .autopark .desc {
     position: static;
     width: 90%;
     margin: 0 auto; }
   .autopark {
-    background-image: url("/img/skoda.png"), url("/img/vw.png");
+    background-color: #ffd100;
     background-repeat: no-repeat;
     text-align: center;
-    height: 500px;
-    background-size: cover;
-    background-position: center center; }
+    height: 500px; }
   .shashDivWrapper {
     margin-top: -40px; }
   h2 {
     margin-bottom: 10px; } }
 
 @media only screen and (min-width: 1480px) {
+  .hidden-md {
+    display: none; }
   .shashDivWrapper {
     left: auto;
     right: 0; } }
@@ -677,6 +688,8 @@ a {
     background-size: 100% auto; } }
 
 @media only screen and (max-width: 760px) {
+  .aboutUs {
+    height: 700px !important; }
   h1 {
     font-size: 60px; }
   h2 {
@@ -691,11 +704,27 @@ a {
     -ms-flex-item-align: start;
     align-self: flex-start; }
   .autopark {
-    height: 350px; }
+    height: 400px; }
   .smaller {
     background-color: rgba(0, 0, 0, 0.4); }
     .smaller img {
       height: 50px !important; } }
+
+.footerText {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 200;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.8; }
+
+.padding0 {
+  padding: 0 !important; }
 
 .whiteTxt {
   color: #fff; }
