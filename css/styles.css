@@ -27,7 +27,7 @@ body {
   min-height: 400px;
   width: 100%;
   height: 100vh;
-  background: url(/img/jumboGirl.jpg) no-repeat center center;
+  background: url(../img/jumboGirl.jpg) no-repeat center center;
   background-size: cover; }
   .jumbo .container {
     position: relative;
@@ -392,7 +392,7 @@ a {
 .order {
   overflow: hidden;
   background-color: #333;
-  background-image: url("/img/map_pattern_2.png");
+  background-image: url("../img/map_pattern_2.png");
   background-size: 70%;
   background-attachment: fixed;
   -webkit-box-shadow: inset 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
@@ -509,7 +509,7 @@ a {
   position: relative;
   overflow: hidden;
   padding-right: 5%;
-  background: url(/img/carBG.jpg) no-repeat center center;
+  background: url(../img/carBG.jpg) no-repeat center center;
   background-size: cover; }
   .autopark .skodaPhoto {
     z-index: 4;
@@ -565,13 +565,13 @@ a {
 
 .aboutUs {
   height: 800px;
-  background-image: url("/img/flaresBG.jpg");
+  background-image: url("../img/flaresBG.jpg");
   background-size: auto 100%;
   position: relative;
   overflow: hidden; }
   @media only screen and (min-width: 1480px) {
     .aboutUs .aboutUs {
-      background-image: url("/img/flaresBG.jpg");
+      background-image: url("../img/flaresBG.jpg");
       background-size: 100% auto; } }
   .aboutUs .container {
     position: relative; }
@@ -684,7 +684,7 @@ a {
 
 @media only screen and (min-width: 1480px) and (min-width: 1700px) {
   .aboutUs {
-    background-image: url("/img/flaresBG.jpg");
+    background-image: url("../img/flaresBG.jpg");
     background-size: 100% auto; } }
 
 @media only screen and (max-width: 760px) {
