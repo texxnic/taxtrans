@@ -11,7 +11,9 @@ html {
 
 body {
   min-height: 100%;
-  margin: 0; }
+  margin: 0;
+  overflow-z: hidden;
+  position: relative; }
 
 .container {
   width: 90%;
@@ -21,7 +23,8 @@ body {
 #main {
   min-height: 100vh;
   left: 0;
-  right: 0; }
+  right: 0;
+  position: absolute; }
 
 .jumbo {
   min-height: 400px;
@@ -49,6 +52,11 @@ body {
     width: 100%;
     z-index: 4;
     opacity: 0.99999; }
+    .jumbo header .phones {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center; }
     .jumbo header .headerRightContent {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -100,109 +108,7 @@ body {
     justify-content: center;
     -webkit-box-align: start;
     -ms-flex-align: start;
-    align-items: flex-start;
-    /* Mixin for drawing button with optional argument for width, padding, and time*/
-    /* Color variables*/
-    /* Start of styling*/ }
-    .jumbo .jumboText * {
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box; }
-    .jumbo .jumboText body {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      height: 100vh;
-      width: 100%;
-      font-family: Doko-Book, serif;
-      -webkit-font-smoothing: antialiased;
-      background-color: #000; }
-    .jumbo .jumboText a {
-      font-size: 2em;
-      text-transform: uppercase;
-      text-decoration: none;
-      letter-spacing: 0.1em; }
-    .jumbo .jumboText .btn-draw {
-      position: relative;
-      display: inline-block;
-      color: #fff;
-      border-bottom: 2px solid #fff;
-      cursor: pointer;
-      overflow: hidden;
-      -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-      transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; }
-      .jumbo .jumboText .btn-draw:after {
-        content: '';
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        height: 100%;
-        width: 2px;
-        background: #fff;
-        -webkit-transform: translateY(100%);
-        transform: translateY(100%);
-        -webkit-transition: -webkit-transform 0.2s ease-in-out;
-        transition: -webkit-transform 0.2s ease-in-out;
-        transition: transform 0.2s ease-in-out;
-        transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-        -webkit-transition-delay: 0.6s;
-        transition-delay: 0.6s; }
-      .jumbo .jumboText .btn-draw > span {
-        position: relative;
-        display: block;
-        padding: 0.5em;
-        color: inherit;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 300;
-        font-size: 25px; }
-        .jumbo .jumboText .btn-draw > span:before, .jumbo .jumboText .btn-draw > span:after {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          background: #fff;
-          -webkit-transition: -webkit-transform 0.2s ease-in-out;
-          transition: -webkit-transform 0.2s ease-in-out;
-          transition: transform 0.2s ease-in-out;
-          transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
-        .jumbo .jumboText .btn-draw > span:before {
-          height: 2px;
-          width: 100%;
-          -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-          -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s; }
-        .jumbo .jumboText .btn-draw > span:after {
-          height: 100%;
-          width: 2px;
-          -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-          -webkit-transition-delay: 0.2s;
-          transition-delay: 0.2s; }
-      .jumbo .jumboText .btn-draw:hover:after,
-      .jumbo .jumboText .btn-draw:hover > span:before,
-      .jumbo .jumboText .btn-draw:hover > span:after {
-        -webkit-transform: translate(0, 0);
-        transform: translate(0, 0); }
-      .jumbo .jumboText .btn-draw:hover:after {
-        -webkit-transition-delay: 0s;
-        transition-delay: 0s; }
-      .jumbo .jumboText .btn-draw:hover > span:before {
-        -webkit-transition-delay: 0.2s;
-        transition-delay: 0.2s; }
-      .jumbo .jumboText .btn-draw:hover > span:after {
-        -webkit-transition-delay: 0.4s;
-        transition-delay: 0.4s; }
-      .jumbo .jumboText .btn-draw:hover {
-        color: #000;
-        background-color: #fff;
-        -webkit-transition-delay: 0.6s;
-        transition-delay: 0.6s; }
+    align-items: flex-start; }
   .jumbo h1 {
     color: #ffd100;
     margin: 0; }
@@ -227,8 +133,8 @@ h2 {
 
 h3 {
   font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 200;
-  font-size: 60px;
+  font-weight: 900;
+  font-size: 40px;
   margin: 0; }
 
 h4 {
@@ -246,7 +152,8 @@ a {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 200;
   font-size: 25px;
-  text-decoration: none; }
+  text-decoration: none;
+  color: #000; }
 
 .blur {
   -webkit-filter: blur(5px);
@@ -282,10 +189,10 @@ a {
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 15px 8px 15px 32px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+  font-size: 20px;
+  color: #333;
   display: block;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -330,7 +237,6 @@ a {
   opacity: 0.9999; }
 
 .hamBorder {
-  border: 1px solid white;
   margin-left: 20px;
   padding: 10px 10px 3px 10px;
   border-radius: 10px; }
@@ -508,9 +414,11 @@ a {
   background-color: #ffd100;
   position: relative;
   overflow: hidden;
-  padding-right: 5%;
   background: url(../img/carBG.jpg) no-repeat center center;
   background-size: cover; }
+  .autopark .ourCars {
+    margin-top: 0;
+    margin-right: 70px; }
   .autopark .skodaPhoto {
     z-index: 4;
     position: absolute;
@@ -520,25 +428,30 @@ a {
   .autopark .vwPhoto {
     z-index: 2;
     position: absolute;
-    right: 390px;
-    top: -10px; }
+    right: 430px; }
   .autopark .carAndDesc {
     position: relative; }
+  .autopark .carDescMob {
+    background-color: #ebebeb;
+    padding: 10px 20px;
+    text-align: left; }
+    .autopark .carDescMob a {
+      text-decoration: underline; }
+  .autopark .carDescModel {
+    background-color: #333;
+    padding: 15px 20px; }
+    .autopark .carDescModel img {
+      float: left;
+      margin-right: 10px; }
   .autopark .desc {
     position: absolute;
-    right: 0;
+    right: 20px;
     top: 200px;
-    width: 460px;
+    width: 530px;
     background-color: #ebebeb;
     -webkit-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
     -moz-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
     box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58); }
-    .autopark .desc .carDescModel {
-      background-color: #333;
-      padding: 15px 20px; }
-      .autopark .desc .carDescModel img {
-        float: left;
-        margin-right: 10px; }
     .autopark .desc .carDesc {
       text-align: justify;
       padding: 10px 30px; }
@@ -555,7 +468,7 @@ a {
     width: 100px;
     height: auto; }
 
-@media only screen and (min-width: 1900px) {
+@media only screen and (min-width: 1775px) {
   .skodaPhoto {
     left: 0; }
   .vwPhoto {
@@ -590,7 +503,7 @@ a {
     top: 90px; }
     .aboutUs .shashDivWrapper .shashDivPositioner {
       position: relative; }
-  .aboutUs p {
+  .aboutUs .padAndBorder {
     border-left: 2px solid #ffd100;
     padding-left: 10px; }
   .aboutUs svg {
@@ -654,11 +567,25 @@ a {
         display: inline-block;
         transform: scale(0.5); } }
 
+@media only screen and (min-width: 1230px) {
+  .hidden-md {
+    display: none; } }
+
 @media only screen and (max-width: 1230px) {
+  .autopark .carDescModel {
+    background-color: #333;
+    padding: 30px 0; }
+    .autopark .carDescModel h2 {
+      margin: 0 0; }
+    .autopark .carDescModel img {
+      float: left;
+      margin-right: 10px; }
   .hidden-mobile {
     display: none; }
   .aboutUs .container {
     text-align: center; }
+    .aboutUs .container .padAndBorder {
+      border-left: none; }
     .aboutUs .container .poglash {
       width: 350px; }
   .autopark .desc {
@@ -676,8 +603,6 @@ a {
     margin-bottom: 10px; } }
 
 @media only screen and (min-width: 1480px) {
-  .hidden-md {
-    display: none; }
   .shashDivWrapper {
     left: auto;
     right: 0; } }
@@ -689,7 +614,7 @@ a {
 
 @media only screen and (max-width: 760px) {
   .aboutUs {
-    height: 700px !important; }
+    height: 800px !important; }
   h1 {
     font-size: 60px; }
   h2 {
@@ -708,7 +633,12 @@ a {
   .smaller {
     background-color: rgba(0, 0, 0, 0.4); }
     .smaller img {
-      height: 50px !important; } }
+      height: 51px !important; }
+    .smaller .hamBorder {
+      border: none;
+      padding: 6px 0 0 0;
+      z-index: 999999999;
+      opacity: 0.999999; } }
 
 .footerText {
   position: absolute;

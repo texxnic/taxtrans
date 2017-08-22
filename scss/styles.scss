@@ -40,6 +40,8 @@ textarea:focus, input:focus{
     body {
         min-height: 100%;
         margin: 0;
+        overflow-z: hidden;
+        position: relative;
     }
 
     .container {
@@ -54,6 +56,8 @@ textarea:focus, input:focus{
         min-height: 100vh;
         left: 0;
         right: 0;
+        position: absolute;
+
     }
 
     .jumbo {
@@ -81,6 +85,14 @@ textarea:focus, input:focus{
             width: 100%;
             z-index: 4;
             opacity: 0.99999;
+
+.phones{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content:center;
+
+}
 
             .headerRightContent {
                 display: -webkit-box;
@@ -139,154 +151,7 @@ textarea:focus, input:focus{
             -webkit-box-align: start;
             -ms-flex-align: start;
             align-items: flex-start;
-            /* Mixin for drawing button with optional argument for width, padding, and time*/
-            @mixin btn-draw($color, $color-hov, $width: 1px, $padding: 0.5em, $time: 0.2s) {
-                position: relative;
-
-                display: inline-block;
-
-                color: $color;
-                border-bottom: $width solid $color;
-                cursor: pointer;
-                overflow: hidden;
-                -webkit-transition: color $time ease-in-out, background-color $time ease-in-out;
-                transition: color $time ease-in-out, background-color $time ease-in-out;
-
-                &:after {
-                    content: '';
-                    position: absolute;
-                    right: 0;
-                    bottom: 0;
-
-                    height: 100%;
-                    width: $width;
-
-                    background: $color;
-                    -webkit-transform: translateY(100%);
-                    transform: translateY(100%);
-                    -webkit-transition: -webkit-transform $time ease-in-out;
-                    transition: -webkit-transform $time ease-in-out;
-                    transition: transform $time ease-in-out;
-                    transition: transform $time ease-in-out, -webkit-transform $time ease-in-out;
-                    -webkit-transition-delay: $time * 3;
-                    transition-delay: $time * 3;
-                }
-
-                >span {
-                    position: relative;
-
-                    display: block;
-                    padding: $padding;
-
-                    color: inherit;
-                    font-family: 'Source Sans Pro', sans-serif;
-                    font-weight: 300;
-                    font-size: 25px;
-
-                    &:before,
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-
-                        background: $color;
-                        -webkit-transition: -webkit-transform $time ease-in-out;
-                        transition: -webkit-transform $time ease-in-out;
-                        transition: transform $time ease-in-out;
-                        transition: transform $time ease-in-out, -webkit-transform $time ease-in-out;
-                    }
-
-                    &:before {
-                        height: $width;
-                        width: 100%;
-
-                        -webkit-transform: translateX(100%);
-
-                        transform: translateX(100%);
-                        -webkit-transition-delay: $time * 2;
-                        transition-delay: $time * 2;
-                    }
-
-                    &:after {
-                        height: 100%;
-                        width: $width;
-
-                        -webkit-transform: translateY(-100%);
-
-                        transform: translateY(-100%);
-                        -webkit-transition-delay: $time;
-                        transition-delay: $time;
-                    }
-                }
-
-                &:hover:after,
-                &:hover>span:before,
-                &:hover>span:after {
-                    -webkit-transform: translate(0, 0);
-                    transform: translate(0, 0);
-                }
-
-                &:hover:after {
-                    -webkit-transition-delay: 0s;
-                    transition-delay: 0s;
-                }
-
-                &:hover>span:before {
-                    -webkit-transition-delay: $time;
-                    transition-delay: $time;
-                }
-
-                &:hover>span:after {
-                    -webkit-transition-delay: $time * 2;
-                    transition-delay: $time * 2;
-                }
-
-                &:hover {
-                    color: $color-hov;
-                    background-color: $color;
-                    -webkit-transition-delay: $time * 3;
-                    transition-delay: $time * 3;
-                }
-            }
-            /* Color variables*/
-            $color-blue: #fff;
-            $color-grey: #000;
-            /* Start of styling*/
-            * {
-                -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-            }
-
-            body {
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-box-align: center;
-                -ms-flex-align: center;
-                align-items: center;
-                -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                justify-content: center;
-                height: 100vh;
-                width: 100%;
-
-                font-family: Doko-Book, serif;
-                -webkit-font-smoothing: antialiased;
-                background-color: $color-grey;
-            }
-
-            a {
-                font-size: 2em;
-                text-transform: uppercase;
-                text-decoration: none;
-                letter-spacing: 0.1em;
-            }
-
-            .btn-draw {
-                @include btn-draw($color-blue, $color-grey, 2px);
-            }
-        }
+           }
         h1 {
             color: $yellow;
             margin: 0;
@@ -320,8 +185,8 @@ textarea:focus, input:focus{
 
     h3 {
         font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 200;
-        font-size: 60px;
+        font-weight: 900;
+        font-size: 40px;
         margin: 0;
     }
 
@@ -342,6 +207,7 @@ textarea:focus, input:focus{
         font-weight: 200;
         font-size: 25px;
         text-decoration: none;
+        color:#000;
     }
 
     .blur {
@@ -380,10 +246,10 @@ textarea:focus, input:focus{
     /* The navigation menu links */
 
     .sidenav a {
-        padding: 8px 8px 8px 32px;
+        padding: 15px 8px 15px 32px;
         text-decoration: none;
-        font-size: 25px;
-        color: #818181;
+        font-size: 20px;
+        color: $gray;
         display: block;
         -webkit-transition: 0.3s;
         transition: 0.3s;
@@ -437,7 +303,7 @@ textarea:focus, input:focus{
     }
 
     .hamBorder {
-        border: 1px solid white;
+     
         margin-left: 20px;
         padding: 10px 10px 3px 10px;
         border-radius: 10px;
@@ -679,10 +545,13 @@ textarea:focus, input:focus{
         background-color: $yellow;
         position: relative;
         overflow: hidden;
-        padding-right: 5%;
+        
            background: url(../img/carBG.jpg) no-repeat center center;
         background-size: cover;
-       
+       .ourCars{
+        margin-top: 0;
+        margin-right: 70px;
+       }
         .skodaPhoto {
             z-index: 4;
             position: absolute;
@@ -693,23 +562,21 @@ textarea:focus, input:focus{
         .vwPhoto {
             z-index: 2;
             position: absolute;
-            right: 390px;
-            top: -10px;
+            right: 430px;
+            
         }
         .carAndDesc {
             position: relative;
         }
-        .desc {
-            position: absolute;
-            right: 0;
-            top: 200px;
-            width: 460px;
+        .carDescMob{
             background-color: $lightGray;
-             -webkit-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
-        -moz-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
-        box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
-
-            .carDescModel{
+            padding: 10px 20px;
+            text-align: left;
+            a{
+                text-decoration: underline;
+            }
+        }
+          .carDescModel{
                 background-color: $gray;
                 img{
                     float:left;
@@ -717,6 +584,18 @@ textarea:focus, input:focus{
                 }
                 padding:15px 20px;
             }
+        .desc {
+            position: absolute;
+            right: 20px;
+
+            top: 200px;
+            width: 530px;
+            background-color: $lightGray;
+             -webkit-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        -moz-box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+        box-shadow: 5px 0px 53px -4px rgba(0, 0, 0, 0.58);
+
+          
             .carDesc{
                 text-align: justify;
                 padding:10px 30px;
@@ -742,7 +621,7 @@ textarea:focus, input:focus{
         }
     }
 
-    @media only screen and (min-width: 1900px) {
+    @media only screen and (min-width: 1775px) {
         .skodaPhoto {
             left: 0;
         }
@@ -790,7 +669,7 @@ textarea:focus, input:focus{
             }
         }
 
-        p {
+        .padAndBorder {
             border-left: 2px solid $yellow;
             padding-left: 10px;
         }
@@ -885,15 +764,32 @@ textarea:focus, input:focus{
     }
 
 @media only screen and (min-width: 1230px) {
-
+    .hidden-md{
+        display: none;
+    }
 }
 
 
     @media only screen and (max-width: 1230px) {
+         .autopark {
+            .carDescModel{
+                h2{
+                    margin:0 0;
+                }
+                background-color: $gray;
+                img{
+                    float:left;
+                    margin-right: 10px;
+                }
+                padding:30px 0;
+            }
+         }
         .hidden-mobile{
             display: none;
         }
         .aboutUs .container {
+            .padAndBorder {
+            border-left: none;}
             text-align: center;
             .poglash{
             width: 350px;
@@ -922,9 +818,7 @@ textarea:focus, input:focus{
     }
 
     @media only screen and (min-width: 1480px) {
-         .hidden-md{
-        display: none;
-    }
+     
         .shashDivWrapper {
             left: auto;
             right: 0;
@@ -942,7 +836,7 @@ textarea:focus, input:focus{
 
     @media only screen and (max-width: 760px) {
          .aboutUs {
-        height: 700px !important;}
+        height: 800px !important;}
         h1 {
             font-size: 60px;
         }
@@ -965,10 +859,19 @@ textarea:focus, input:focus{
         .autopark {
             height: 400px;
         }
+    
+
         .smaller {
             background-color: rgba(0, 0, 0, 0.4);
             img {
-                height: 50px !important;
+                height: 51px !important;
+            }
+            .hamBorder{
+                border:none;
+                padding:6px 0 0 0;
+                z-index:999999999;
+                opacity: 0.999999;
+
             }
         }
     }
